@@ -1,0 +1,44 @@
+version: '3.6'
+services:
+  # PostgreSQL
+  postgres:
+    hostname: postgres
+    image: postgres:12.4
+    restart: 'always'
+    environment:
+      POSTGRES_USER: 'admin'
+      POSTGRES_PASSWORD: 'some!!!_password@#@!#!!!!!'
+      POSTGRES_DB: 'secretdb'
+      PGDATA: '/var/lib/postgresql/data/pgdata'
+    volumes:
+      - 'server-postgres:/var/lib/postgresql/data'
+    ports:
+      - '5435:5432'
+    networks:
+      - server-dev-net
+
+  redis:
+    image: 'redis:alpine'
+    command: redis-server
+    restart: 'always'
+    ports:
+      - '6379:6379'
+    volumes:
+      - server-redis:/var/lib/redis
+      - server-redis:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+# Network
+networks:
+  server-dev-net:
+    driver: bridge
+
+# Volumes - docker volume create --driver local server-postgres
+# Volumes - docker volume create --driver local server-redis
+
+volumes:
+  server-postgres:
+    external: true
+  server-redis:
+    external: true

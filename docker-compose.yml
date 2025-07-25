@@ -1,0 +1,26 @@
+version: '3.6'
+services:
+  api:
+    container_name: api
+    hostname: api
+    restart: 'always'
+    build:
+      context: .
+    ports:
+      - '3000:3000'
+    networks:
+      - server-dev-net
+
+# Network
+networks:
+  server-dev-net:
+    driver: bridge
+
+# Volumes - docker volume create --driver local server-postgres
+# Volumes - docker volume create --driver local server-redis
+
+volumes:
+  server-postgres:
+    external: true
+  server-redis:
+    external: true

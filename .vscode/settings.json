@@ -1,0 +1,88 @@
+{
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "workbench.enableExperiments": false,
+  "breadcrumbs.enabled": true,
+  "files.exclude": {
+    "**/dist": true,
+    "**/node_modules": false,
+    "**/coverage": true
+  },
+  "files.watcherExclude": {
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/coverage": true
+  },
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.quoteStyle": "single",
+  "html.format.wrapAttributes": "force-aligned",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "colorize.include": ["src/**/*.scss"],
+  "colorize.languages": ["css", "sass", "scss", "less", "svg"],
+  "colorize.colorized_variables": ["SASS"],
+  "colorize.enable_search_variables": false,
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "words",
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 1,
+  "importSorter.importStringConfiguration.trailingComma": "multiLine",
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "importSorter.sortConfiguration.customOrderingRules.rules": [
+    {
+      "type": "importMember",
+      "regex": "^$",
+      "orderLevel": 5,
+      "disableSort": true
+    },
+    {
+      "regex": "^[@]",
+      "orderLevel": 10
+    },
+    {
+      "regex": "^[^.@]",
+      "orderLevel": 15
+    },
+    {
+      "regex": "^[.]",
+      "orderLevel": 30
+    }
+  ],
+  "importSorter.importStringConfiguration.tabSize": 2,
+  "importSorter.importStringConfiguration.tabType": "space",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.tslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.tabSize": 2,
+  "scssFormatter.tabWidth": 4,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 2000,
+  "todohighlight.include": ["src/**/*.ts"],
+  "cSpell.enabled": false,
+  "cSpell.words": [
+    "Eurecat",
+    "Grpc",
+    "balancemethod",
+    "datadog",
+    "dogstatsd",
+    "maxcalls",
+    "nocache",
+    "serializers"
+  ],
+  "prettier.singleQuote": true,
+  "prettier.semi": true,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "es5",
+  "protoc": {
+    "path": "/path/to/protoc",
+    "compile_on_save": false,
+    "options": [
+      "--proto_path=protos/v3",
+      "--proto_path=protos/v2",
+      "--proto_path=${workspaceRoot}/proto",
+      "--proto_path=${env.GOPATH}/src",
+      "--java_out=gen/java"
+    ]
+  }
+}

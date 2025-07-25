@@ -1,0 +1,10 @@
+.git
+.github
+.cache
+.vscode
+**/dist
+Dockerfile
+*.md
+.env
+k8s
+.dump
